@@ -1,0 +1,8 @@
+Aventura,porcentual,20,2,Bosque Negro,Mordor
+Aventura plus,porcentual,10,3,Bosque Negro,Mordor,Lothlorien
+Desgustacion gold,absoluta,46,3,Lothlorien,Erebor,La Comarca
+Desgustacion,absoluta,36,2,Lothlorien,La Comarca
+Aventura 2,AxB,2,3,Minas Tirith,Abismo de Helm,Erebor
+Aventura extrema,AxB,2,4,Minas Tirith,Lothlorien,Bosque Negro,Erebor
+
+
