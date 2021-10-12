@@ -19,7 +19,7 @@ public class Archivo {
 				String[] datos;
 
 				datos = line.split(",");
-				Usuario u = new Usuario(datos[0], Integer.parseInt(datos[1]), Integer.parseInt(datos[2]));
+				Usuario u = new Usuario(datos[0], Double.parseDouble(datos[1]), Double.parseDouble(datos[2]));
 				listausuarios.add(u);
 
 				line = bufInput.readLine();

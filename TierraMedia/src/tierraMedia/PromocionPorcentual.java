@@ -11,11 +11,8 @@ public class PromocionPorcentual extends Promociones{
 		this.porcentaje=porcentaje;
 	}
 	
+
 	
-	public double CalcularCostoFinal(LinkedList<Atraccion> atraccion) {
-		
-		return costo=super.CalcularCostoFinal(atraccion)*porcentaje;
-	}
 
 	
 	

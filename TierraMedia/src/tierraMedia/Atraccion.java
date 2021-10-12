@@ -5,6 +5,7 @@ public class Atraccion {
 	private double costo;
 	private double duracion;
 	private int cupo;
+	private int cupoDisponible = cupo;
 
 	public Atraccion(String nombre, double costo, double duracion, int cupo) {
 		this.nombre = nombre;
@@ -12,13 +13,23 @@ public class Atraccion {
 		this.duracion = duracion;
 		this.cupo = cupo;
 	}
-	
+
 	public String getnombre() {
+		
 		return nombre;
 	}
+
 	public double getCosto() {
+		
 		return costo;
 	}
+
+	public double getDuracion() {
+
+		return duracion;
+	}
+	
+	public void setCupoDisponible(int cupoUsado) {
+		cupoDisponible-=cupoUsado;
+	}
 }
-
-

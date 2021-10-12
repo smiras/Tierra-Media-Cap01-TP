@@ -7,26 +7,40 @@ public class Promociones {
 	String nombre;
 	String tipo;
 	int cantAtracciones;
-	String[] atracciones;
-	double costo = 0;
+	String[] atraccionesIncluidas;
+	double costoFinal = 0;
+	double duracionFinal = 0;
 
 	public Promociones(String nombre, String tipo, int cantAtracciones, String[] atracciones) {
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.cantAtracciones = cantAtracciones;
-		this.atracciones = atracciones;
+		this.atraccionesIncluidas = atracciones;
 
 	}
 
-	public double CalcularCostoFinal(LinkedList<Atraccion> atraccion) {
-		for (String a : atracciones) {
-			for (Atraccion at : atraccion) {
-				if (a==at.getnombre()) {
-					costo+=at.getCosto();
+	public void CalcularDuracionFinal(LinkedList<Atraccion> atracciones) {
+		for (String ai : atraccionesIncluidas) {
+			for (Atraccion a : atracciones) {
+				if (ai.equals(a.getnombre())) {
+					
+					duracionFinal += a.getDuracion();
 				}
 			}
+
 		}
-		return costo;
+	}
+	
+	public void CalcularCostoFinal(LinkedList<Atraccion> atracciones) {
+		for (String ai : atraccionesIncluidas) {
+			for (Atraccion a : atracciones) {
+				if (ai.equals(a.getnombre())) {
+					costoFinal += a.getCosto();
+					
+				}
+			}
+
+		}
 	}
 
 	public String getNombre() {

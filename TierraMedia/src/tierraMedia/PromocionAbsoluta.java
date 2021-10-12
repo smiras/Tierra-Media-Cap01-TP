@@ -1,6 +1,6 @@
 package tierraMedia;
 
-import java.util.ArrayList;
+import java.util.*;
 
 public class PromocionAbsoluta extends Promociones{
 double costoFinal;
@@ -13,5 +13,5 @@ double costoFinal;
 		return costoFinal;
 	}
 	
-
+	
 }

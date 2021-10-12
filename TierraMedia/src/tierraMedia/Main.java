@@ -14,24 +14,9 @@ public class Main {
 		LinkedList<Promociones> promociones = new LinkedList<Promociones>();
 		promociones=a.leerpromociones();//carga lista de promociones
 
-		for (Promociones p : promociones) {
-
-			System.out.println(p.getNombre());
-
-		}
-
-		/*
-		for (Usuario u : usuarios) {
-
-			System.out.println(u.getnombre());
-
-		}
+		for(Promociones p: promociones) {
 		
-		for (Atraccion at : atracciones) {
-
-			System.out.println(at.getnombre());
-
-		}*/
 		
+		}
 	}
 }
