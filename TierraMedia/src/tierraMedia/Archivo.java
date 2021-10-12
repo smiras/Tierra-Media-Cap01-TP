@@ -67,32 +67,33 @@ public class Archivo {
 			String line = bufInput.readLine();
 
 			while (line != null) {
-				String[] data;
-				data = line.split(",");
-				ArrayList<String> atracciones = new ArrayList<String>();
-				String tipo = data[1];
+				String[] data=line.split(",");
+				int indice = Integer.parseInt(data[3]);
+				
+				String atracciones[] = new String[indice];
+				
 
-				if (tipo.equals("porcentual")) {
+				if (data[1].equals("porcentual")) {
 
-					for (String s : atracciones) {
-						atracciones.add(s);
+					for (int i=4; i<indice; i++ ) {
+						atracciones[i-4]=data[i];
 					}
 
 					PromocionPorcentual pp = new PromocionPorcentual(data[0], data[1], Integer.parseInt(data[2]),
 							atracciones, Double.parseDouble(data[3]));
 					lista.add(pp);
 				} else {
-					if (tipo.equals("absoluta")) {
-						for (String s : atracciones) {
-							atracciones.add(s);
+					if (data[1].equals("absoluta")) {
+						for (int i=4; i<indice; i++ ) {
+							atracciones[i-4]=data[i];
 						}
 
 						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], data[1], Integer.parseInt(data[2]),
 								atracciones, Double.parseDouble(data[3]));
 						lista.add(pa);
 					} else {
-						for (String s : atracciones) {
-							atracciones.add(s);
+						for (int i=4; i<indice; i++ ) {
+							atracciones[i-4]=data[i];
 						}
 
 						PromocionAbsoluta pab = new PromocionAbsoluta(data[0], data[1], Integer.parseInt(data[2]),

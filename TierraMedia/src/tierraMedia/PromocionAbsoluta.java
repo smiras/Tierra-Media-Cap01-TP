@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class PromocionAbsoluta extends Promociones{
 double costoFinal;
-	public PromocionAbsoluta(String nombre, String tipo, int cantAtracciones, ArrayList<String> atracciones, double costoFinal) {
+	public PromocionAbsoluta(String nombre, String tipo, int cantAtracciones, String[] atracciones, double costoFinal) {
 		super(nombre, tipo, cantAtracciones, atracciones);
 		this.costoFinal=costoFinal;
 	}

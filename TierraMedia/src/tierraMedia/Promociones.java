@@ -7,14 +7,14 @@ public class Promociones {
 	String nombre;
 	String tipo;
 	int cantAtracciones;
-	ArrayList<String> atracciones;
+	String[] atracciones;
 	double costo = 0;
 
-	public Promociones(String nombre, String tipo, int cantAtracciones, ArrayList<String> atracciones2) {
+	public Promociones(String nombre, String tipo, int cantAtracciones, String[] atracciones) {
 		this.nombre = nombre;
 		this.tipo = tipo;
 		this.cantAtracciones = cantAtracciones;
-		this.atracciones = atracciones2;
+		this.atracciones = atracciones;
 
 	}
 
