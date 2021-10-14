@@ -3,12 +3,15 @@ package promociones;
 import java.util.*;
 
 public class PromocionPorcentual extends Promocion {
-	double porcentaje;
-
-	public PromocionPorcentual(String nombre, String[] atracciones, double porcentaje) {
-		super(nombre, atracciones);
+	private static double duracionFinal;
+	private double porcentaje;
+	
+	public PromocionPorcentual(String nombre, String[] atracciones,double porcentaje, double duracionFinal) {
+		super(nombre, atracciones, duracionFinal);
 		// TODO Auto-generated constructor stub
-		this.porcentaje = porcentaje;
+		this.porcentaje=porcentaje;
 	}
+
+	
 
 }

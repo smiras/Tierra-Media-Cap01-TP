@@ -10,10 +10,14 @@ import promociones.PromocionPorcentual;
 
 public class Archivo {
 
-	public LinkedList leerusuario() {
-		LinkedList<Usuario> listausuarios = new LinkedList<Usuario>();
+	LinkedList<Usuario> listausuarios = new LinkedList<Usuario>();
+	LinkedList<Atraccion> listatracciones=new LinkedList<Atraccion>();
+	LinkedList<Promocion> listapromociones= new LinkedList<Promocion>();
+
+	public void leerarchivos() {
+
 		try {
-			FileReader input = new FileReader("Usuarios.txt");
+			FileReader input = new FileReader("files/Usuarios.txt");
 			BufferedReader bufInput = new BufferedReader(input);
 
 			String line;
@@ -34,13 +38,8 @@ public class Archivo {
 			e.printStackTrace();
 		}
 
-		return listausuarios;
-	}
-
-	public LinkedList leeratracciones() {
-		LinkedList<Atraccion> lista = new LinkedList<Atraccion>();
 		try {
-			FileReader input = new FileReader("Atracciones.txt");
+			FileReader input = new FileReader("files/Atracciones.txt");
 			BufferedReader bufInput = new BufferedReader(input);
 
 			String line = bufInput.readLine();
@@ -51,7 +50,7 @@ public class Archivo {
 
 				Atraccion at = new Atraccion(dato[0], Double.parseDouble(dato[1]), Double.parseDouble(dato[2]),
 						Integer.parseInt(dato[3]));
-				lista.add(at);
+				listatracciones.add(at);
 
 				line = bufInput.readLine();
 			}
@@ -60,38 +59,49 @@ public class Archivo {
 			e.printStackTrace();
 		}
 
-		return lista;
-	}
-
-	public LinkedList leerpromociones() {
-		LinkedList<Promocion> lista = new LinkedList<Promocion>();
 		try {
-			FileReader input = new FileReader("Promociones.txt");
+			FileReader input = new FileReader("files/Promociones.txt");
 			BufferedReader bufInput = new BufferedReader(input);
 
 			String line = bufInput.readLine();
 
 			while (line != null) {
 				String[] data = line.split(",");
-
 				String atracciones[] = new String[Integer.parseInt(data[3])];
-
+				double duracionFinal=0;
+				
 				if (data[1].equals("porcentual")) {
 
 					for (int i = 4; i < data.length; i++) {
 						atracciones[i - 4] = data[i];
 					}
-					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]));
+					
+					for (String ai : atracciones) {
+						for (Atraccion a : listatracciones) {
+							if (ai.equals(a.getnombre())) {
 
-					lista.add(pp);
+								duracionFinal += a.getDuracion();
+							}
+						}
+					}
+					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]),duracionFinal);
+					
+					listapromociones.add(pp);
 				} else {
 					if (data[1].equals("absoluta")) {
 						for (int i = 4; i < data.length; i++) {
 							atracciones[i - 4] = data[i];
 						}
+						for (String ai : atracciones) {
+							for (Atraccion a : listatracciones) {
+								if (ai.equals(a.getnombre())) {
 
-						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones);
-						lista.add(pa);
+									duracionFinal += a.getDuracion();
+								}
+							}
+						}
+						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]),duracionFinal);
+						listapromociones.add(pa);
 					} else {
 						String atraccionesextra[] = new String[Integer.parseInt(data[3]) - Integer.parseInt(data[2])];
 
@@ -101,9 +111,16 @@ public class Archivo {
 						for (int i = atracciones.length + 4; i < atraccionesextra.length; i++) {
 							atraccionesextra[i - 4 - atracciones.length] = data[i];
 						}
+						for (String ai : atracciones) {
+							for (Atraccion a : listatracciones) {
+								if (ai.equals(a.getnombre())) {
 
-						PromocionAB pab = new PromocionAB(data[0], atracciones, atraccionesextra);
-						lista.add(pab);
+									duracionFinal += a.getDuracion();
+								}
+							}
+						}
+						PromocionAB pab = new PromocionAB(data[0], atracciones, atraccionesextra, duracionFinal);
+						listapromociones.add(pab);
 					}
 				}
 
@@ -114,6 +131,17 @@ public class Archivo {
 			e.printStackTrace();
 		}
 
-		return lista;
+	}
+
+	public LinkedList<Usuario> getListausuarios() {
+		return listausuarios;
+	}
+
+	public LinkedList<Atraccion> getListatracciones() {
+		return listatracciones;
+	}
+
+	public LinkedList<Promocion> getListapromociones() {
+		return listapromociones;
 	}
 }

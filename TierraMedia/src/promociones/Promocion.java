@@ -13,9 +13,10 @@ public class Promocion {
 	private double costoFinal = 0;
 	private double duracionFinal = 0;
 
-	public Promocion(String nombre, String[] atracciones) {
+	public Promocion(String nombre, String[] atracciones, double duracionFinal) {
 		this.nombre = nombre;
 		this.atraccionesIncluidas = atracciones;
+		this.duracionFinal=duracionFinal;
 		
 	}
 
@@ -30,16 +31,9 @@ public class Promocion {
 		}
 	}
 
-	public void CalcularDuracionFinal(LinkedList<Atraccion> atracciones) {
-		for (String ai : atraccionesIncluidas) {
-			for (Atraccion a : atracciones) {
-				if (ai.equals(a.getnombre())) {
+	public double getDuracion() {
+		return duracionFinal;
 
-					duracionFinal += a.getDuracion();
-				}
-			}
-
-		}
 	}
 
 	public double CalcularCostoFinal(LinkedList<Atraccion> atracciones) {
