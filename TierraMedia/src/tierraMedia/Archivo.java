@@ -3,6 +3,11 @@ package tierraMedia;
 import java.io.*;
 import java.util.*;
 
+import promociones.Promocion;
+import promociones.PromocionAB;
+import promociones.PromocionAbsoluta;
+import promociones.PromocionPorcentual;
+
 public class Archivo {
 
 	public LinkedList leerusuario() {
@@ -59,7 +64,7 @@ public class Archivo {
 	}
 
 	public LinkedList leerpromociones() {
-		LinkedList<Promociones> lista = new LinkedList<Promociones>();
+		LinkedList<Promocion> lista = new LinkedList<Promocion>();
 		try {
 			FileReader input = new FileReader("Promociones.txt");
 			BufferedReader bufInput = new BufferedReader(input);
@@ -67,37 +72,37 @@ public class Archivo {
 			String line = bufInput.readLine();
 
 			while (line != null) {
-				String[] data=line.split(",");
-				int indice = Integer.parseInt(data[3]);
-				
-				String atracciones[] = new String[indice];
-				
+				String[] data = line.split(",");
+
+				String atracciones[] = new String[Integer.parseInt(data[3])];
 
 				if (data[1].equals("porcentual")) {
 
-					for (int i=4; i<indice; i++ ) {
-						atracciones[i-4]=data[i];
+					for (int i = 4; i < data.length; i++) {
+						atracciones[i - 4] = data[i];
 					}
+					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]));
 
-					PromocionPorcentual pp = new PromocionPorcentual(data[0], data[1], Integer.parseInt(data[2]),
-							atracciones, Double.parseDouble(data[3]));
 					lista.add(pp);
 				} else {
 					if (data[1].equals("absoluta")) {
-						for (int i=4; i<indice; i++ ) {
-							atracciones[i-4]=data[i];
+						for (int i = 4; i < data.length; i++) {
+							atracciones[i - 4] = data[i];
 						}
 
-						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], data[1], Integer.parseInt(data[2]),
-								atracciones, Double.parseDouble(data[3]));
+						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones);
 						lista.add(pa);
 					} else {
-						for (int i=4; i<indice; i++ ) {
-							atracciones[i-4]=data[i];
+						String atraccionesextra[] = new String[Integer.parseInt(data[3]) - Integer.parseInt(data[2])];
+
+						for (int i = 4; i < data.length; i++) {
+							atracciones[i - 4] = data[i];
+						}
+						for (int i = atracciones.length + 4; i < atraccionesextra.length; i++) {
+							atraccionesextra[i - 4 - atracciones.length] = data[i];
 						}
 
-						PromocionAbsoluta pab = new PromocionAbsoluta(data[0], data[1], Integer.parseInt(data[2]),
-								atracciones, Double.parseDouble(data[3]));
+						PromocionAB pab = new PromocionAB(data[0], atracciones, atraccionesextra);
 						lista.add(pab);
 					}
 				}
