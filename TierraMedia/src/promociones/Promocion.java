@@ -7,13 +7,12 @@ import tierraMedia.Atraccion;
 public class Promocion {
 
 	private String nombre;
-	private String tipo;
 	private int cantAtracciones;
 	private String[] atraccionesIncluidas;
 	private double costoFinal = 0;
 	private double duracionFinal = 0;
 
-	public Promocion(String nombre, String[] atracciones, double duracionFinal) {
+	public Promocion(String nombre, String[] atracciones) {
 		this.nombre = nombre;
 		this.atraccionesIncluidas = atracciones;
 		this.duracionFinal=duracionFinal;
@@ -31,11 +30,6 @@ public class Promocion {
 		}
 	}
 
-	public double getDuracion() {
-		return duracionFinal;
-
-	}
-
 	public double CalcularCostoFinal(LinkedList<Atraccion> atracciones) {
 		for (String ai : atraccionesIncluidas) {
 			for (Atraccion a : atracciones) {
@@ -47,6 +41,10 @@ public class Promocion {
 
 		}
 		return costoFinal;
+	}
+
+	public double getDuracionFinal() {
+		return duracionFinal;
 	}
 
 }

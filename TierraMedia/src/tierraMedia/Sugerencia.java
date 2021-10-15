@@ -14,10 +14,11 @@ public class Sugerencia {
 		LinkedList<Promocion> promociones = a.getListapromociones();// carga lista de promociones
 		Scanner sc = new Scanner(System.in);
 
-		for(Promocion p: promociones) {
-		System.out.println(p.getDuracion());
+		for (Promocion p : promociones) {
+			System.out.println(p.getNombre());
+			System.out.println(p.getDuracionFinal());
 		}
-		
+
 	}
 }
 

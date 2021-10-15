@@ -8,7 +8,7 @@ public class PromocionAB extends Promocion{
 	private double costoFinal;
 	
 	public PromocionAB(String nombre, String[] atracciones, String[] atraccionesExtra, double duracionFinal) {
-		super(nombre, atracciones, duracionFinal);
+		super(nombre, atracciones);
 		// TODO Auto-generated constructor stub
 		this.atraccionesExtra = atraccionesExtra;
 	}

@@ -11,8 +11,8 @@ import promociones.PromocionPorcentual;
 public class Archivo {
 
 	LinkedList<Usuario> listausuarios = new LinkedList<Usuario>();
-	LinkedList<Atraccion> listatracciones=new LinkedList<Atraccion>();
-	LinkedList<Promocion> listapromociones= new LinkedList<Promocion>();
+	LinkedList<Atraccion> listatracciones = new LinkedList<Atraccion>();
+	LinkedList<Promocion> listapromociones = new LinkedList<Promocion>();
 
 	public void leerarchivos() {
 
@@ -68,27 +68,19 @@ public class Archivo {
 			while (line != null) {
 				String[] data = line.split(",");
 				String atracciones[] = new String[Integer.parseInt(data[3])];
-				double duracionFinal=0;
-				
-				if (data[1].equals("porcentual")) {
 
+				if (data[1].equals("porcentual")) {
 					for (int i = 4; i < data.length; i++) {
 						atracciones[i - 4] = data[i];
 					}
-					
-					for (String ai : atracciones) {
-						for (Atraccion a : listatracciones) {
-							if (ai.equals(a.getnombre())) {
 
-								duracionFinal += a.getDuracion();
-							}
-						}
-					}
-					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]),duracionFinal);
-					
+					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]));
+					pp.calcularDuracion(atracciones, listatracciones);
+
 					listapromociones.add(pp);
 				} else {
 					if (data[1].equals("absoluta")) {
+						double duracionFinal = 0;
 						for (int i = 4; i < data.length; i++) {
 							atracciones[i - 4] = data[i];
 						}
@@ -100,20 +92,29 @@ public class Archivo {
 								}
 							}
 						}
-						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]),duracionFinal);
+						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]),
+								duracionFinal);
 						listapromociones.add(pa);
 					} else {
 						String atraccionesextra[] = new String[Integer.parseInt(data[3]) - Integer.parseInt(data[2])];
-
+						double duracionFinal = 0;
 						for (int i = 4; i < data.length; i++) {
 							atracciones[i - 4] = data[i];
 						}
-						for (int i = atracciones.length + 4; i < atraccionesextra.length; i++) {
+						for (int i = atracciones.length + 4; i < data.length; i++) {
 							atraccionesextra[i - 4 - atracciones.length] = data[i];
 						}
-						for (String ai : atracciones) {
-							for (Atraccion a : listatracciones) {
+						for (Atraccion a : listatracciones) {
+							for (String ai : atracciones) {
+
 								if (ai.equals(a.getnombre())) {
+
+									duracionFinal += a.getDuracion();
+								}
+							}
+							for (String aextra : atraccionesextra) {
+
+								if (aextra.equals(a.getnombre())) {
 
 									duracionFinal += a.getDuracion();
 								}

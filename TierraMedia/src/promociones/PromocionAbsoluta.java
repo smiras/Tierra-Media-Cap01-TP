@@ -7,7 +7,7 @@ private static double duracionFinal;
 private double costoFinal;
 
 public PromocionAbsoluta(String nombre, String[] atracciones, double costo, double duracionFinal) {
-	super(nombre, atracciones, duracionFinal);
+	super(nombre, atracciones);
 	this.costoFinal=costo;
 	// TODO Auto-generated constructor stub
 }
