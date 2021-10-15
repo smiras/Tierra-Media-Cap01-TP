@@ -75,56 +75,41 @@ public class Archivo {
 					}
 
 					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]));
-					pp.calcularDuracion(atracciones, listatracciones);
+					pp.calcularDuracionyCosto(atracciones, listatracciones);
 
 					listapromociones.add(pp);
 				} else {
 					if (data[1].equals("absoluta")) {
-						double duracionFinal = 0;
 						for (int i = 4; i < data.length; i++) {
 							atracciones[i - 4] = data[i];
 						}
-						for (String ai : atracciones) {
-							for (Atraccion a : listatracciones) {
-								if (ai.equals(a.getnombre())) {
-
-									duracionFinal += a.getDuracion();
-								}
-							}
-						}
-						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]),
-								duracionFinal);
+						
+						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]));
+						pa.calcularDuracionyCosto(atracciones, listatracciones);
 						listapromociones.add(pa);
 					} else {
+						if (data[1].equals("AxB")) {
+						String atraccionespagas[] = new String[Integer.parseInt(data[2])];
 						String atraccionesextra[] = new String[Integer.parseInt(data[3]) - Integer.parseInt(data[2])];
-						double duracionFinal = 0;
-						for (int i = 4; i < data.length; i++) {
-							atracciones[i - 4] = data[i];
-						}
-						for (int i = atracciones.length + 4; i < data.length; i++) {
-							atraccionesextra[i - 4 - atracciones.length] = data[i];
-						}
-						for (Atraccion a : listatracciones) {
-							for (String ai : atracciones) {
-
-								if (ai.equals(a.getnombre())) {
-
-									duracionFinal += a.getDuracion();
-								}
+						int cantatraccionespagas = Integer.parseInt(data[2]);
+						
+						
+						for (int i=4; i< data.length; i++) {
+							if(i-4<cantatraccionespagas) {
+								atraccionespagas[i-4] = data[i];
 							}
-							for (String aextra : atraccionesextra) {
-
-								if (aextra.equals(a.getnombre())) {
-
-									duracionFinal += a.getDuracion();
-								}
+							else {
+								atraccionesextra[i-cantatraccionespagas-4]=data[i];
 							}
 						}
-						PromocionAB pab = new PromocionAB(data[0], atracciones, atraccionesextra, duracionFinal);
+						
+						
+						PromocionAB pab = new PromocionAB(data[0], atraccionespagas, atraccionesextra);
+						pab.calcularDuracionyCosto(atraccionespagas, listatracciones);
 						listapromociones.add(pab);
 					}
 				}
-
+				}
 				line = bufInput.readLine();
 			}
 			bufInput.close();

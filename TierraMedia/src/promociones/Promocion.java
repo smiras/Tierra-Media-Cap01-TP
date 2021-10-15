@@ -7,16 +7,14 @@ import tierraMedia.Atraccion;
 public class Promocion {
 
 	private String nombre;
-	private int cantAtracciones;
 	private String[] atraccionesIncluidas;
-	private double costoFinal = 0;
-	private double duracionFinal = 0;
+	protected double costoFinal = 0;
+	protected double duracionFinal = 0;
 
 	public Promocion(String nombre, String[] atracciones) {
 		this.nombre = nombre;
 		this.atraccionesIncluidas = atracciones;
-		this.duracionFinal=duracionFinal;
-		
+
 	}
 
 	public String getNombre() {
@@ -29,22 +27,26 @@ public class Promocion {
 			System.out.println(a);
 		}
 	}
-
-	public double CalcularCostoFinal(LinkedList<Atraccion> atracciones) {
-		for (String ai : atraccionesIncluidas) {
-			for (Atraccion a : atracciones) {
-				if (ai.equals(a.getnombre())) {
-					costoFinal += a.getCosto();
-
-				}
-			}
-
-		}
-		return costoFinal;
-	}
-
 	public double getDuracionFinal() {
 		return duracionFinal;
 	}
+	
+	public double getCostoFinal() {
+		return costoFinal;
+	}
+
+	public void calcularDuracionyCosto(String[] atracciones, LinkedList<Atraccion> listatracciones) {
+		for (String ai : atracciones) {
+			for (Atraccion a : listatracciones) {
+				if (ai.equals(a.getnombre())) {
+
+					this.duracionFinal += a.getDuracion();
+					this.costoFinal += a.getCosto();
+				}
+			}
+		}
+	}
+
+	
 
 }

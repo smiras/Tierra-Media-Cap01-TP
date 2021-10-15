@@ -2,17 +2,21 @@ package promociones;
 
 import java.util.*;
 
-public class PromocionAbsoluta extends Promocion{
-private static double duracionFinal;
-private double costoFinal;
+import tierraMedia.Atraccion;
 
-public PromocionAbsoluta(String nombre, String[] atracciones, double costo, double duracionFinal) {
-	super(nombre, atracciones);
-	this.costoFinal=costo;
-	// TODO Auto-generated constructor stub
-}
+public class PromocionAbsoluta extends Promocion {
 	
-	
-	
-	
+	private double costoFinal;
+
+	public PromocionAbsoluta(String nombre, String[] atracciones, double costo) {
+		super(nombre, atracciones);
+		costoFinal = costo;
+
+	}
+
+	@Override
+	public void calcularDuracionyCosto(String[] atracciones, LinkedList<Atraccion> listatracciones) {
+		super.calcularDuracionyCosto(atracciones, listatracciones);
+		super.costoFinal = costoFinal;
+	}
 }

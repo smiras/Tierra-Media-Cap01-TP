@@ -3,6 +3,6 @@ Minas Tirith_5_2.5_25
 La Comarca_3_6.5_150
 Mordor_25_3_4
 Abismo de Helm_5_2_15
-Lothlórien_35_1_30
+Lothlorien_35_1_30
 Erebor_12_3_32
 Bosque Negro_3_4_12

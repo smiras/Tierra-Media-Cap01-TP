@@ -16,14 +16,10 @@ public class Sugerencia {
 
 		for (Promocion p : promociones) {
 			System.out.println(p.getNombre());
+			System.out.println(p.getCostoFinal());
 			System.out.println(p.getDuracionFinal());
 		}
 
 	}
 }
 
-/*
- * Costo 25,000000: Duracion 3,000000: Costo 25,000000: Duracion 3,000000: Costo
- * 15,000000: Duracion 9,500000: Costo 3,000000: Duracion 6,500000: Costo
- * 17,000000: Duracion 5,500000: Costo 17,000000: Duracion 5,500000:
- */
