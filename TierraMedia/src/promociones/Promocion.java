@@ -23,11 +23,9 @@ public class Promocion implements Comparable<Promocion> {
 		return nombre;
 	}
 
-	public void getAtracciones() {
-		for (String a : atraccionesIncluidas) {
-			System.out.println(a);
+	public String[] getAtracciones() {
+		return atraccionesIncluidas;
 		}
-	}
 
 	public double getDuracion() {
 		return duracion;
@@ -76,17 +74,7 @@ public class Promocion implements Comparable<Promocion> {
 		return Double.valueOf(costo).compareTo(pr.getCosto());
 	}
 
-	public boolean tieneCupo(LinkedList<Atraccion> atracciones) {
-		for(String at: atraccionesIncluidas) {
-			for(Atraccion lat: atracciones) {
-				if(at.equals(lat.getNombre())&&lat.getCupo()==0) {
-					return false;
-				}
-			}
-		}
-		return true;
-	}
-	
+		
 	public void aceptarPromo() {
 		for(String at: atraccionesIncluidas) {
 			
