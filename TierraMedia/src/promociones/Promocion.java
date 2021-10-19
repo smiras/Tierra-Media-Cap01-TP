@@ -74,10 +74,4 @@ public class Promocion implements Comparable<Promocion> {
 		return Double.valueOf(costo).compareTo(pr.getCosto());
 	}
 
-		
-	public void aceptarPromo() {
-		for(String at: atraccionesIncluidas) {
-			
-		}
-	}
 }

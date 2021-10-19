@@ -22,33 +22,28 @@ public class App {
 					user.getTiempodisponible());
 			imprimir.cabecera(user.getNombre());
 			String eleccion;
-			Iterator it = colapromo.iterator();
 			
-			int i=0;
+			int i = 0;
 			int size = colapromo.size();
-			while(i<size) {
-				
+			while (i < size) {
+
 				eleccion = sugerencia.ofertar(colapromo.get(i));
 				if (eleccion.equals("s")) {
-					System.out.println("aceptaste esta oferta");
+					System.out.println("¡Reserva confirmada!");
 					sugerencia.aceptarPromo(colapromo.get(i), user, atracciones);
 					colapromo = sugerencia.armarColaOferta(promociones, atracciones, user.getPresupuesto(),
 							user.getTiempodisponible());
 					size = colapromo.size();
 					i++;
 				} else if (eleccion.equals("n")) {
-					System.out.println("no aceptaste esta oferta");
+					System.out.println("No te preocupes tenemos más opciones para vos");
 					colapromo.remove(colapromo.get(i));
 					i++;
-				} else
-					System.out.println("No se entiende");
-				
-			
+				}
+				imprimir.imprimirTicket(user.getOfertasAceptadas());
+				i=0;
 			}
 
-			
-			
-			//las atracciones vuelven a ser ofertables
 		}
 	}
 

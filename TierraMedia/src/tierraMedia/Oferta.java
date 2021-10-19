@@ -8,7 +8,6 @@ public class Oferta {
 	private double costo;
 	private double duracion;
 	private int cupo;
-	private String atraccion;
 
 	public Oferta(String nombre, String[] atracciones, double costo, double duracion, int cupo) {
 		super();
@@ -42,6 +41,6 @@ public class Oferta {
 	@Override
 	public String toString() {
 		return "Oferta \nnombre: " + nombre + "\natracciones: " + Arrays.toString(atracciones) + "\ncosto: " + costo
-				+ "\nduracion: " + duracion + "\ncupo: " + cupo + "\natraccion: " + atraccion;
+				+ "\nduracion: " + duracion;
 	}
 }

@@ -38,6 +38,8 @@ public class Usuario {
 		ofertasAceptadas.add(oferta);
 	}
 	
-
+	public LinkedList<Oferta> getOfertasAceptadas(){
+		return ofertasAceptadas;
+	}
 	
 }
