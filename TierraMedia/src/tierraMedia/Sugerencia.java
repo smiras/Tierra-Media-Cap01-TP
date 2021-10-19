@@ -1,25 +1,25 @@
 package tierraMedia;
 
 import java.util.*;
-
-import promociones.Promocion;
+import promociones.*;
 
 public class Sugerencia {
-	public static void main(String[] args) {
-		String decision;
-		Archivo a = new Archivo();
-		a.leerarchivos();
-		LinkedList<Usuario> usuarios = a.getListausuarios(); // Carga lista de usuarios
-		LinkedList<Atraccion> atracciones = a.getListatracciones(); // Carga lista de atracciones
-		LinkedList<Promocion> promociones = a.getListapromociones();// carga lista de promociones
-		Scanner sc = new Scanner(System.in);
-
-		for (Promocion p : promociones) {
-			System.out.println(p.getNombre());
-			System.out.println(p.getCostoFinal());
-			System.out.println(p.getDuracionFinal());
+	public LinkedList<Promocion> armarColaPromo(LinkedList<Promocion> promociones,LinkedList<Atraccion> atracciones, double presupuesto, double tiempo){
+		LinkedList<Promocion> cola = new LinkedList<Promocion>();
+		for (Promocion pr : promociones) {
+			if ((presupuesto >= pr.getCosto()) && (tiempo >= pr.getDuracion())
+					&& (pr.tieneCupo(atracciones))) {
+				cola.add(pr);
+			}
 		}
-
+		return cola;
+	}	
+	
+	public String ofrecerPromo(Promocion pr) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println(pr.toString());
+		System.out.println("¿Acepta la sugerencia? Ingrese: s (Si) o n (No)");
+		return sc.nextLine();
 	}
 }
 

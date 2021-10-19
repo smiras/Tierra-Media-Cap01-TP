@@ -4,12 +4,13 @@ import java.util.*;
 
 import tierraMedia.Atraccion;
 
-public class Promocion {
+public class Promocion implements Comparable<Promocion> {
 
 	private String nombre;
 	private String[] atraccionesIncluidas;
-	protected double costoFinal = 0;
-	protected double duracionFinal = 0;
+	protected double costo = 0;
+	protected double duracion = 0;
+	protected int cupo;
 
 	public Promocion(String nombre, String[] atracciones) {
 		this.nombre = nombre;
@@ -27,26 +28,68 @@ public class Promocion {
 			System.out.println(a);
 		}
 	}
-	public double getDuracionFinal() {
-		return duracionFinal;
+
+	public double getDuracion() {
+		return duracion;
+	}
+
+	public double getCosto() {
+		return costo;
 	}
 	
-	public double getCostoFinal() {
-		return costoFinal;
+	public int getCupo() {
+		return cupo;
 	}
 
 	public void calcularDuracionyCosto(String[] atracciones, LinkedList<Atraccion> listatracciones) {
 		for (String ai : atracciones) {
 			for (Atraccion a : listatracciones) {
-				if (ai.equals(a.getnombre())) {
+				if (ai.equals(a.getNombre())) {
 
-					this.duracionFinal += a.getDuracion();
-					this.costoFinal += a.getCosto();
+					this.duracion += a.getDuracion();
+					this.costo += a.getCosto();
 				}
 			}
 		}
 	}
 
+	public void calcularCupo(String[] atracciones, LinkedList<Atraccion> lista) {
+		for(Atraccion a : lista) {
+			cupo = a.getCupo();
+			for(String at:atracciones) {
+				
+				if(a.getNombre().equals(at)&&cupo<a.getCupo()) {
+					cupo=a.getCupo();
+				}
+			}
+		}
+	}
 	
+	@Override
+	public String toString() {
+		return "Promocion [nombre=" + nombre + ", atraccionesIncluidas=" + Arrays.toString(atraccionesIncluidas)
+				+ ", costo=" + costo + ", duracion=" + duracion + "]";
+	}
 
+	@Override
+	public int compareTo(Promocion pr) {
+		return Double.valueOf(costo).compareTo(pr.getCosto());
+	}
+
+	public boolean tieneCupo(LinkedList<Atraccion> atracciones) {
+		for(String at: atraccionesIncluidas) {
+			for(Atraccion lat: atracciones) {
+				if(at.equals(lat.getNombre())&&lat.getCupo()==0) {
+					return false;
+				}
+			}
+		}
+		return true;
+	}
+	
+	public void aceptarPromo() {
+		for(String at: atraccionesIncluidas) {
+			
+		}
+	}
 }

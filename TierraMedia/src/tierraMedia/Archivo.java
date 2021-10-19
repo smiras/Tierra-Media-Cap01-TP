@@ -2,11 +2,7 @@ package tierraMedia;
 
 import java.io.*;
 import java.util.*;
-
-import promociones.Promocion;
-import promociones.PromocionAB;
-import promociones.PromocionAbsoluta;
-import promociones.PromocionPorcentual;
+import promociones.*;
 
 public class Archivo {
 
@@ -76,6 +72,7 @@ public class Archivo {
 
 					PromocionPorcentual pp = new PromocionPorcentual(data[0], atracciones, Double.parseDouble(data[2]));
 					pp.calcularDuracionyCosto(atracciones, listatracciones);
+					pp.calcularCupo(atracciones, listatracciones);
 
 					listapromociones.add(pp);
 				} else {
@@ -86,6 +83,7 @@ public class Archivo {
 						
 						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]));
 						pa.calcularDuracionyCosto(atracciones, listatracciones);
+						pa.calcularCupo(atracciones, listatracciones);
 						listapromociones.add(pa);
 					} else {
 						if (data[1].equals("AxB")) {
@@ -105,6 +103,7 @@ public class Archivo {
 						
 						
 						PromocionAB pab = new PromocionAB(data[0], atraccionespagas, atraccionesextra);
+						pab.calcularCupo(atraccionesextra, listatracciones, atraccionesextra);
 						pab.calcularDuracionyCosto(atraccionespagas, listatracciones);
 						listapromociones.add(pab);
 					}

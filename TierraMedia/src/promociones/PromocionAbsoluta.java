@@ -6,17 +6,17 @@ import tierraMedia.Atraccion;
 
 public class PromocionAbsoluta extends Promocion {
 	
-	private double costoFinal;
+	private double costo;
 
 	public PromocionAbsoluta(String nombre, String[] atracciones, double costo) {
 		super(nombre, atracciones);
-		costoFinal = costo;
+		this.costo = costo;
 
 	}
 
 	@Override
 	public void calcularDuracionyCosto(String[] atracciones, LinkedList<Atraccion> listatracciones) {
 		super.calcularDuracionyCosto(atracciones, listatracciones);
-		super.costoFinal = costoFinal;
+		super.costo = costo;
 	}
 }

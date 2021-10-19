@@ -14,7 +14,7 @@ public class PromocionPorcentual extends Promocion {
 	@Override
 	public void calcularDuracionyCosto(String[] atracciones, LinkedList<Atraccion> listatracciones) {
 		super.calcularDuracionyCosto(atracciones, listatracciones);
-		super.costoFinal = super.getCostoFinal() -(super.getCostoFinal()*porcentaje);
+		super.costo = super.getCosto() -(super.getCosto()*porcentaje);
 		
 		}
 	
