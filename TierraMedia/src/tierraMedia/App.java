@@ -18,45 +18,32 @@ public class App {
 		Sugerencia sugerencia = new Sugerencia();
 
 		for (Usuario user : usuarios) {
-			LinkedList<Oferta> colapromo = sugerencia.armarColaOferta(promociones, atracciones, user.getPresupuesto(),
-					user.getTiempodisponible());
-			/*
-			System.out.println(colapromo.toString());
-			System.out.println("hasta acá llega la cola");
-			System.out.println();
-			*/
-			
-			imprimir.cabecera(user.getNombre());
+			LinkedList<Oferta> ofrecidas = new LinkedList(); 
+			LinkedList<Oferta> colapromo = sugerencia.armarColaOferta(promociones, atracciones, user, ofrecidas);
+
+			imprimir.cabecera(user);
 			String eleccion;
+
+			// colapromo.forEach(cola->System.out.println(cola.getNombre()));
 			
-			int i = 0;
-			int size = colapromo.size();
-			while (i < size) {
-				Oferta ofer = colapromo.get(i);
-				eleccion = sugerencia.ofertar(colapromo.get(i));
+			while (!colapromo.isEmpty()) {
+
+				Oferta ofer = colapromo.get(0);
+				eleccion = sugerencia.ofertar(ofer);
 				if (eleccion.equals("s")) {
 					System.out.println("¡Reserva confirmada!");
+					sugerencia.aceptarPromo(ofer, user, atracciones);
 					
-					sugerencia.aceptarPromo(colapromo.get(i), user, atracciones);
-					colapromo = sugerencia.armarColaOferta(promociones, atracciones, user.getPresupuesto(),
-							user.getTiempodisponible());					
-					size = colapromo.size();
-					i=0;
-					
-						colapromo.remove(ofer);
-					
+
 				} else if (eleccion.equals("n")) {
 					System.out.println("No te preocupes tenemos más opciones para vos");
-					
-					colapromo.remove(ofer);
-				}
-				imprimir.imprimirTicket(user.getOfertasAceptadas(),user.getNombre(),user.getPresupuesto());
-								
-				
-				
+
+					}
+				ofrecidas.add(ofer);
+				colapromo = sugerencia.armarColaOferta(promociones, atracciones, user, ofrecidas);
 			}
 			
+			imprimir.imprimirTicket(user);
 		}
 	}
-
 }

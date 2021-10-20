@@ -6,22 +6,36 @@ import promociones.*;
 public class Sugerencia {
 
 	public LinkedList<Oferta> armarColaOferta(LinkedList<Promocion> promociones, LinkedList<Atraccion> atracciones,
-			double presupuesto, double tiempo) {
+			Usuario user, LinkedList<Oferta> ofrecidas) {
 		LinkedList<Oferta> cola = new LinkedList<Oferta>();
+		
 		for (Promocion pr : promociones) {
-			if ((presupuesto >= pr.getCosto()) && (tiempo >= pr.getDuracion()) && (pr.getCupo() > 0)) {
+			if ((user.getPresupuesto() >= pr.getCosto()) && (user.getTiempodisponible() >= pr.getDuracion()) && (pr.getCupo() > 0)) {
 				Oferta ofer = new Oferta(pr.getNombre(), pr.getAtracciones(), pr.getCosto(), pr.getDuracion(),
 						pr.getCupo());
 				cola.add(ofer);
 			}
 		}
 		for (Atraccion at : atracciones) {
-			if ((presupuesto >= at.getCosto()) && (tiempo >= at.getDuracion()) && (at.getCupo() > 0)) {
+			if ((user.getPresupuesto() >= at.getCosto()) && (user.getTiempodisponible() >= at.getDuracion()) && (at.getCupo() > 0)) {
 				Oferta ofer = new Oferta(at.getNombre(), at.getAtraccion(), at.getCosto(), at.getDuracion(),
 						at.getCupo());
 				cola.add(ofer);
 			}
 		}
+		int i=0;
+		int size = cola.size();
+		while(!cola.isEmpty()&&i<size) {
+			
+			Oferta of = cola.get(i);
+			for(Oferta ofer: ofrecidas) {
+				if(of.getNombre().equals(ofer.getNombre()))
+					cola.remove(of);
+			}
+			i++;
+			size = cola.size();
+		}
+		
 		return cola;
 	}
 
@@ -43,7 +57,7 @@ public class Sugerencia {
 				}
 			}
 		}
-
+		
 	}
 
 	

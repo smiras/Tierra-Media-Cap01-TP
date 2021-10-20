@@ -4,19 +4,21 @@ import java.util.*;
 
 public class Imprimir {
 
-	public void cabecera(String name) {
+	public void cabecera(Usuario user) {
 		System.out.println("¡Bienvenid@ a la Tierra Media!");
 		System.out.println("-------------------------------------------------------------------");
-		System.out.printf("Nombre: %s \n", name);
+		System.out.printf("Nombre: %s \n", user.getNombre());
 		System.out.println("-------------------------------------------------------------------");
 	}
 
-	public void imprimirTicket(LinkedList<Oferta> ofertasAceptadas, String name, double presupuesto) {
+	public void imprimirTicket(Usuario user) {
 
 		System.out.println("-------------------------------------------------------------------");
-		System.out.printf("Tu ticket de compra: %s \n", name);
+		System.out.printf("Tu ticket de compra: %s \n", user.getNombre());
+		System.out.println(user.getTiempodisponible());
+		System.out.println(user.getPresupuesto());
 		System.out.printf("Sus atracciones elegidas son: ");
-		for (Oferta oferta : ofertasAceptadas) {
+		for (Oferta oferta : user.getOfertasAceptadas()) {
 
 			System.out.println(Arrays.toString(oferta.getAtracciones()));
 		}
