@@ -20,30 +20,42 @@ public class App {
 		for (Usuario user : usuarios) {
 			LinkedList<Oferta> colapromo = sugerencia.armarColaOferta(promociones, atracciones, user.getPresupuesto(),
 					user.getTiempodisponible());
+			/*
+			System.out.println(colapromo.toString());
+			System.out.println("hasta acá llega la cola");
+			System.out.println();
+			*/
+			
 			imprimir.cabecera(user.getNombre());
 			String eleccion;
 			
 			int i = 0;
 			int size = colapromo.size();
 			while (i < size) {
-
+				Oferta ofer = colapromo.get(i);
 				eleccion = sugerencia.ofertar(colapromo.get(i));
 				if (eleccion.equals("s")) {
 					System.out.println("¡Reserva confirmada!");
+					
 					sugerencia.aceptarPromo(colapromo.get(i), user, atracciones);
 					colapromo = sugerencia.armarColaOferta(promociones, atracciones, user.getPresupuesto(),
-							user.getTiempodisponible());
+							user.getTiempodisponible());					
 					size = colapromo.size();
-					i++;
+					i=0;
+					
+						colapromo.remove(ofer);
+					
 				} else if (eleccion.equals("n")) {
 					System.out.println("No te preocupes tenemos más opciones para vos");
-					colapromo.remove(colapromo.get(i));
-					i++;
+					
+					colapromo.remove(ofer);
 				}
-				imprimir.imprimirTicket(user.getOfertasAceptadas());
-				i=0;
+				imprimir.imprimirTicket(user.getOfertasAceptadas(),user.getNombre(),user.getPresupuesto());
+								
+				
+				
 			}
-
+			
 		}
 	}
 

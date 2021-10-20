@@ -40,7 +40,8 @@ public class Oferta {
 
 	@Override
 	public String toString() {
-		return "Oferta \nnombre: " + nombre + "\natracciones: " + Arrays.toString(atracciones) + "\ncosto: " + costo
-				+ "\nduracion: " + duracion;
+	 return "Promo \nnombre: " + nombre + "\natracciones: " + Arrays.toString(atracciones) + "\ncosto: " + costo
+	 + "\nduracion: " + duracion;
 	}
+
 }

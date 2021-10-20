@@ -4,3 +4,6 @@ Desgustacion gold,absoluta,46,3,Lothlorien,Erebor,La Comarca
 Desgustacion,absoluta,36,2,Lothlorien,La Comarca
 Aventura 2,AxB,2,3,Minas Tirith,Abismo de Helm,Erebor
 Aventura extrema,AxB,2,4,Minas Tirith,Lothlorien,Bosque Negro,Erebor
+Pack Terror,absoluta,12,2,Bosque Sombrío,Sendero de los Muertos
+Pack Turista,AxB,1,3,Bosque de los Trolls,Rivendel,Bosque Negro es gratis
+Pack Trekking,porcentual,25,2,Montañas Nubladas,Río Bruinen

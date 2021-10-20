@@ -80,34 +80,32 @@ public class Archivo {
 						for (int i = 4; i < data.length; i++) {
 							atracciones[i - 4] = data[i];
 						}
-						
+
 						PromocionAbsoluta pa = new PromocionAbsoluta(data[0], atracciones, Double.parseDouble(data[2]));
 						pa.calcularDuracionyCosto(atracciones, listatracciones);
 						pa.calcularCupo(atracciones, listatracciones);
 						listapromociones.add(pa);
 					} else {
 						if (data[1].equals("AxB")) {
-						String atraccionespagas[] = new String[Integer.parseInt(data[2])];
-						String atraccionesextra[] = new String[Integer.parseInt(data[3]) - Integer.parseInt(data[2])];
-						int cantatraccionespagas = Integer.parseInt(data[2]);
-						
-						
-						for (int i=4; i< data.length; i++) {
-							if(i-4<cantatraccionespagas) {
-								atraccionespagas[i-4] = data[i];
+							String atraccionespagas[] = new String[Integer.parseInt(data[2])];
+							String atraccionesextra[] = new String[Integer.parseInt(data[3])
+									- Integer.parseInt(data[2])];
+							int cantatraccionespagas = Integer.parseInt(data[2]);
+
+							for (int i = 4; i < data.length; i++) {
+								if (i - 4 < cantatraccionespagas) {
+									atraccionespagas[i - 4] = data[i];
+								} else {
+									atraccionesextra[i - cantatraccionespagas - 4] = data[i];
+								}
 							}
-							else {
-								atraccionesextra[i-cantatraccionespagas-4]=data[i];
-							}
+
+							PromocionAB pab = new PromocionAB(data[0], atraccionespagas, atraccionesextra);
+							pab.calcularCupo(atraccionesextra, listatracciones, atraccionesextra);
+							pab.calcularDuracionyCosto(atraccionespagas, listatracciones);
+							listapromociones.add(pab);
 						}
-						
-						
-						PromocionAB pab = new PromocionAB(data[0], atraccionespagas, atraccionesextra);
-						pab.calcularCupo(atraccionesextra, listatracciones, atraccionesextra);
-						pab.calcularDuracionyCosto(atraccionespagas, listatracciones);
-						listapromociones.add(pab);
 					}
-				}
 				}
 				line = bufInput.readLine();
 			}
@@ -117,6 +115,23 @@ public class Archivo {
 		}
 
 	}
+
+	/*public void escribirArchivos() {
+		try {
+			FileWriter output = new FileWriter("files/Usuarios.txt");
+			BufferedWriter bufInput = new BufferedWriter(output);
+
+			String line;
+
+			line = bufInput.writeLine(line);
+
+			bufInput.close();
+		} catch (
+
+		IOException e) {
+			e.printStackTrace();
+		}
+	}*/
 
 	public LinkedList<Usuario> getListausuarios() {
 		return listausuarios;

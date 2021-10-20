@@ -2,3 +2,13 @@ Eowyn,10,8
 Gandalf,100,5
 Sam,36,8
 Galadriel,120,6
+Juandalf,40,10
+Fedegor,80,3.5
+Arwen,20,6
+Frodo,45,8
+Andregor,110,8
+Sergmir,150,3
+Anawen,80,5
+Cindriel,200,1.5
+Frandalf,60,3
+Ramindel,85,7.5
