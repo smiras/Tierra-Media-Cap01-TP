@@ -1,12 +1,15 @@
 package tierraMedia;
 
 import java.util.LinkedList;
+import promociones.*;
 
 public class Usuario {
 	private String nombre;
 	private double presupuesto;
 	private double tiempodisponible;
-	LinkedList<Oferta> ofertasAceptadas = new LinkedList<Oferta>();
+	//guardar promos y atracciones aceptadas
+	private LinkedList<Promocion> promosAceptadas = new LinkedList<Promocion>();
+	private LinkedList<Atraccion> atraccionAceptada = new LinkedList<Atraccion>();
 
 	public Usuario(String nombre, double presupuesto, double tiempodisponible) {
 		this.nombre = nombre;
@@ -34,12 +37,19 @@ public class Usuario {
 		this.tiempodisponible = tiempodisponible;
 	}
 	
-	public void ofertaAceptada(Oferta oferta) {
-		ofertasAceptadas.add(oferta);
+	public void aceptarPromos(Promocion promo) {
+		promosAceptadas.add(promo);
 	}
 	
-	public LinkedList<Oferta> getOfertasAceptadas(){
-		return ofertasAceptadas;
+	public void aceptarAtracciones(Atraccion atraccion) {
+		atraccionAceptada.add(atraccion);
 	}
-	
+
+	public LinkedList<Promocion> getPromosAceptadas() {
+		return promosAceptadas;
+	}
+
+	public LinkedList<Atraccion> getAtraccionAceptada() {
+		return atraccionAceptada;
+	}
 }

@@ -1,6 +1,6 @@
 package tierraMedia;
 
-import java.util.*;
+import promociones.*;
 
 public class Imprimir {
 
@@ -18,9 +18,13 @@ public class Imprimir {
 		System.out.println(user.getTiempodisponible());
 		System.out.println(user.getPresupuesto());
 		System.out.printf("Sus atracciones elegidas son: ");
-		for (Oferta oferta : user.getOfertasAceptadas()) {
+		for (Promocion promos : user.getPromosAceptadas()) {
 
-			System.out.println(Arrays.toString(oferta.getAtracciones()));
+			System.out.println((promos));
+		}
+		for (Atraccion atraccion : user.getAtraccionAceptada()) {
+
+			System.out.println((atraccion));
 		}
 
 		System.out.println("¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!");

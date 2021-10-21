@@ -18,29 +18,45 @@ public class App {
 		Sugerencia sugerencia = new Sugerencia();
 
 		for (Usuario user : usuarios) {
-			LinkedList<Oferta> ofrecidas = new LinkedList(); 
-			LinkedList<Oferta> colapromo = sugerencia.armarColaOferta(promociones, atracciones, user, ofrecidas);
-
+			LinkedList<Promocion> promosaceptadas = new LinkedList<Promocion>();
+			LinkedList<Atraccion> aceptadas = new LinkedList<Atraccion>();
+			LinkedList<Promocion> colapromos = sugerencia.armarColaPromos(promociones, user, promosaceptadas); 
+						
 			imprimir.cabecera(user);
 			String eleccion;
-
-			// colapromo.forEach(cola->System.out.println(cola.getNombre()));
 			
-			while (!colapromo.isEmpty()) {
-
-				Oferta ofer = colapromo.get(0);
-				eleccion = sugerencia.ofertar(ofer);
-				if (eleccion.equals("s")) {
+			while (!colapromos.isEmpty()) {
+				System.out.println(user.getPresupuesto());
+				Promocion ofer = colapromos.get(0);
+				eleccion = sugerencia.ofertarPromos(ofer);
+				if (eleccion.equalsIgnoreCase("s")) {
 					System.out.println("¡Reserva confirmada!");
-					sugerencia.aceptarPromo(ofer, user, atracciones);
+					aceptadas.addAll(sugerencia.aceptarPromo(ofer, user, atracciones));
+					promosaceptadas.add(ofer);
+					colapromos = sugerencia.armarColaPromos(promociones, user,promosaceptadas);
 					
-
-				} else if (eleccion.equals("n")) {
+				} else if (eleccion.equalsIgnoreCase("n")) {
 					System.out.println("No te preocupes tenemos más opciones para vos");
+					colapromos.pollFirst();
+				}
 
-					}
-				ofrecidas.add(ofer);
-				colapromo = sugerencia.armarColaOferta(promociones, atracciones, user, ofrecidas);
+			}
+			
+			LinkedList<Atraccion> colatracciones = sugerencia.armarColaAtracciones(atracciones, user, aceptadas);
+			
+			while (!colatracciones.isEmpty()) {
+				System.out.println(user.getPresupuesto());
+				Atraccion ofera = colatracciones.get(0);
+				eleccion = sugerencia.ofertarAtraccion(ofera);
+				if (eleccion.equalsIgnoreCase("s")) {
+					System.out.println("¡Reserva confirmada!");
+					sugerencia.aceptarAtraccion(ofera, user, atracciones);
+					colatracciones = sugerencia.armarColaAtracciones(atracciones, user, aceptadas);
+				} else if (eleccion.equalsIgnoreCase("n")) {
+					System.out.println("No te preocupes tenemos más opciones para vos");
+					colatracciones.pollFirst();
+				}
+
 			}
 			
 			imprimir.imprimirTicket(user);
