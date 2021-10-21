@@ -7,9 +7,10 @@ public class Usuario {
 	private String nombre;
 	private double presupuesto;
 	private double tiempodisponible;
-	//guardar promos y atracciones aceptadas
 	private LinkedList<Promocion> promosAceptadas = new LinkedList<Promocion>();
 	private LinkedList<Atraccion> atraccionAceptada = new LinkedList<Atraccion>();
+	private double dineroGastado = 0;
+	private double tiempoNecesario = 0;
 
 	public Usuario(String nombre, double presupuesto, double tiempodisponible) {
 		this.nombre = nombre;
@@ -51,5 +52,17 @@ public class Usuario {
 
 	public LinkedList<Atraccion> getAtraccionAceptada() {
 		return atraccionAceptada;
+	}
+	
+	public double calcularDinerogastado() {
+		promosAceptadas.forEach(promo->dineroGastado+=promo.getCosto());
+		atraccionAceptada.forEach(atraccion->dineroGastado+=atraccion.getCosto());
+		return dineroGastado;
+	}
+	
+	public double calcularTiempoNecesario() {
+		promosAceptadas.forEach(promo->tiempoNecesario+=promo.getDuracion());
+		atraccionAceptada.forEach(atraccion->tiempoNecesario+=atraccion.getDuracion());
+		return tiempoNecesario;
 	}
 }

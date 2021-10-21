@@ -36,9 +36,7 @@ public class Sugerencia {
 					&& a.getCupo() > 0) {
 				colatracciones.add(a);
 			}
-		}
-
-		
+		}	
 			LinkedList<Atraccion> auxiliar1 = new LinkedList<Atraccion>();
 			
 			for (Atraccion acep : aceptadas)

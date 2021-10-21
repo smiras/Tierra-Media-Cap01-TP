@@ -116,22 +116,35 @@ public class Archivo {
 
 	}
 
-	/*public void escribirArchivos() {
+	public void escribirArchivos(Usuario user) {
+
 		try {
-			FileWriter output = new FileWriter("files/Usuarios.txt");
-			BufferedWriter bufInput = new BufferedWriter(output);
+			FileWriter output = new FileWriter("files/" + user.getNombre() + ".txt");
+			BufferedWriter bf = new BufferedWriter(output);
 
-			String line;
+			bf.write("---------------------------------\n");
+			bf.write("Tu ticket de compra: "+ user.getNombre());
+			bf.write("\n-------------------------------------------------------------------");
+			bf.write("\nSus atracciones elegidas son: ");
+			for (Promocion promos : user.getPromosAceptadas()) {
 
-			line = bufInput.writeLine(line);
+				bf.write("\n"+(promos.toString()));
+			}
+			for (Atraccion atraccion : user.getAtraccionAceptada()) {
 
-			bufInput.close();
+				bf.write("\n"+(atraccion.toString()));
+			}
+			bf.write("\nGasto Final: "+user.calcularDinerogastado());
+			bf.write("\nTiempo Necesario: "+user.calcularTiempoNecesario());
+			bf.write("\n¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!");
+			bf.write("\n-------------------------------------------------------------------");
+			bf.close();
 		} catch (
 
 		IOException e) {
 			e.printStackTrace();
 		}
-	}*/
+	}
 
 	public LinkedList<Usuario> getListausuarios() {
 		return listausuarios;

@@ -1,0 +1,8 @@
+---------------------------------
+Tu ticket de compra: Gandalf
+-------------------------------------------------------------------
+Sus atracciones elegidas son: Atraccion [nombre=Rivendel, costo=40.0, duracion=2.0, cupo=18]Atraccion [nombre=Rivendel, costo=40.0, duracion=2.0, cupo=18]Atraccion [nombre=Bosque Sombrío, costo=8.0, duracion=1.0, cupo=4]
+Gasto Final: 88.0
+Tiempo Necesario: 5.0
+¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
+-------------------------------------------------------------------

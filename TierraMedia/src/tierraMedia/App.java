@@ -27,7 +27,6 @@ public class App {
 			String eleccion;
 			
 			while (!colapromos.isEmpty()) {
-				System.out.println(user.getPresupuesto());
 				Promocion ofer = colapromos.get(0);
 				eleccion = sugerencia.ofertarPromos(ofer);
 				if (eleccion.equalsIgnoreCase("s")) {
@@ -46,7 +45,6 @@ public class App {
 			colatracciones = sugerencia.armarColaAtracciones(atracciones, user, aceptadas);
 			
 			while (!colatracciones.isEmpty()) {
-				System.out.println(user.getPresupuesto());
 				Atraccion ofera = colatracciones.get(0);
 				eleccion = sugerencia.ofertarAtraccion(ofera);
 				if (eleccion.equalsIgnoreCase("s")) {
@@ -62,5 +60,7 @@ public class App {
 			
 			imprimir.imprimirTicket(user);
 		}
+		
+		
 	}
 }

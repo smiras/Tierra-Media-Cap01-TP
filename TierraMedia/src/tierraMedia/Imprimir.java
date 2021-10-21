@@ -12,11 +12,9 @@ public class Imprimir {
 	}
 
 	public void imprimirTicket(Usuario user) {
-
+		Archivo archivo = new Archivo();
 		System.out.println("-------------------------------------------------------------------");
 		System.out.printf("Tu ticket de compra: %s \n", user.getNombre());
-		System.out.println(user.getTiempodisponible());
-		System.out.println(user.getPresupuesto());
 		System.out.printf("Sus atracciones elegidas son: ");
 		for (Promocion promos : user.getPromosAceptadas()) {
 
@@ -29,5 +27,7 @@ public class Imprimir {
 
 		System.out.println("¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!");
 		System.out.println("-------------------------------------------------------------------");
+		archivo.escribirArchivos(user);
+		
 	}
 }
