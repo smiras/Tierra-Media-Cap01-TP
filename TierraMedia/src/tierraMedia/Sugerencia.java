@@ -5,7 +5,8 @@ import promociones.*;
 
 public class Sugerencia {
 
-	public LinkedList<Promocion> armarColaPromos(LinkedList<Promocion> promos, Usuario user, LinkedList<Promocion> promosaceptadas) {
+	public LinkedList<Promocion> armarColaPromos(LinkedList<Promocion> promos, Usuario user,
+			LinkedList<Promocion> promosaceptadas) {
 		LinkedList<Promocion> colapromos = new LinkedList<Promocion>();
 		for (Promocion p : promos) {
 			if ((p.getCosto() <= user.getPresupuesto()) && (p.getDuracion() <= user.getTiempodisponible())
@@ -13,16 +14,17 @@ public class Sugerencia {
 				colapromos.add(p);
 			}
 		}
-		LinkedList<Promocion> auxiliar = promosaceptadas;
+		LinkedList<Promocion> auxiliar = new LinkedList<Promocion>();
 
-		for (Promocion pr : auxiliar) {
+		for (Promocion pr : colapromos) {
 			for (Promocion promo : promosaceptadas) {
 				if (pr.getNombre().equals(promo.getNombre())) {
-					colapromos.remove(pr);
+					auxiliar.add(pr);
 				}
 			}
 		}
 		
+		colapromos.removeAll(auxiliar);
 		return colapromos;
 	}
 
@@ -36,16 +38,18 @@ public class Sugerencia {
 			}
 		}
 
-		LinkedList<Atraccion> auxiliar1 = colatracciones;
-
-		for (Atraccion at : auxiliar1) {
-			for (Atraccion acep : aceptadas) {
-				if (at.getNombre().equals(acep.getNombre())) {
-					colatracciones.remove(at);
+		
+			LinkedList<Atraccion> auxiliar1 = new LinkedList<Atraccion>();
+			
+			for (Atraccion acep : aceptadas)
+				for (Atraccion at : colatracciones) {
+				 {
+					if (at.getNombre().equals(acep.getNombre())) {
+						auxiliar1.add(at);
+					}
 				}
 			}
-		}
-
+		colatracciones.removeAll(auxiliar1);
 		return colatracciones;
 	}
 

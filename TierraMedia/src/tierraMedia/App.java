@@ -18,6 +18,7 @@ public class App {
 		Sugerencia sugerencia = new Sugerencia();
 
 		for (Usuario user : usuarios) {
+			LinkedList<Atraccion> colatracciones = new LinkedList<Atraccion>();
 			LinkedList<Promocion> promosaceptadas = new LinkedList<Promocion>();
 			LinkedList<Atraccion> aceptadas = new LinkedList<Atraccion>();
 			LinkedList<Promocion> colapromos = sugerencia.armarColaPromos(promociones, user, promosaceptadas); 
@@ -42,7 +43,7 @@ public class App {
 
 			}
 			
-			LinkedList<Atraccion> colatracciones = sugerencia.armarColaAtracciones(atracciones, user, aceptadas);
+			colatracciones = sugerencia.armarColaAtracciones(atracciones, user, aceptadas);
 			
 			while (!colatracciones.isEmpty()) {
 				System.out.println(user.getPresupuesto());
