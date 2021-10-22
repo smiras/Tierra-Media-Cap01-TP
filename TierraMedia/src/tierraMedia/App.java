@@ -46,6 +46,7 @@ public class App {
 			
 			while (!colatracciones.isEmpty()) {
 				Atraccion ofera = colatracciones.get(0);
+				aceptadas.add(ofera);
 				eleccion = sugerencia.ofertarAtraccion(ofera);
 				if (eleccion.equalsIgnoreCase("s")) {
 					System.out.println("¡Reserva confirmada!");

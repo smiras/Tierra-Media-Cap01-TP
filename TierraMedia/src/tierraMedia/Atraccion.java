@@ -1,19 +1,20 @@
 package tierraMedia;
 
+import java.util.Arrays;
+
 public class Atraccion implements Comparable<Atraccion> {
 	private String nombre;
-	private String[] atraccion= new String[1];
+	private String[] atraccion = new String[1];
 	private double costo;
 	private double duracion;
 	private int cupo;
-	
 
 	public Atraccion(String nombre, double costo, double duracion, int cupo) {
 		this.nombre = nombre;
 		this.costo = costo;
 		this.duracion = duracion;
 		this.cupo = cupo;
-		this.atraccion[0]=this.nombre;
+		this.atraccion[0] = this.nombre;
 	}
 
 	public String getNombre() {
@@ -33,12 +34,12 @@ public class Atraccion implements Comparable<Atraccion> {
 	}
 
 	public void restarCupo() {
-		cupo --;
+		cupo--;
 	}
 
 	@Override
 	public String toString() {
-		return "Atraccion [nombre=" + nombre + ", costo=" + costo + ", duracion=" + duracion + ", cupo=" + cupo + "]";
+		return "Atraccion \nNombre: " + nombre + "\nCosto: " + costo + "\nDuracion: " + duracion;
 	}
 
 	@Override

@@ -122,28 +122,32 @@ public class Archivo {
 			FileWriter output = new FileWriter("files/" + user.getNombre() + ".txt");
 			BufferedWriter bf = new BufferedWriter(output);
 
-			bf.write("---------------------------------\n");
-			bf.write("Tu ticket de compra: "+ user.getNombre());
-			bf.write("\n-------------------------------------------------------------------");
+			bf.write("--------------------------------------------------------------------\n");
+			bf.write("Tu ticket de compra: " + user.getNombre());
+			bf.write("\n--------------------------------------------------------------------");
 			bf.write("\nSus atracciones elegidas son: ");
 			for (Promocion promos : user.getPromosAceptadas()) {
 
-				bf.write("\n"+(promos.toString()));
+				bf.write("\n" + (promos.toString()));
 			}
 			for (Atraccion atraccion : user.getAtraccionAceptada()) {
 
-				bf.write("\n"+(atraccion.toString()));
+				bf.write("\n" + (atraccion.toString()));
 			}
-			bf.write("\nGasto Final: "+user.calcularDinerogastado());
-			bf.write("\nTiempo Necesario: "+user.calcularTiempoNecesario());
+			bf.write("\n--------------------------------------------------------------------");
+			bf.write("\nGasto Final: " + user.calcularDinerogastado());
+			bf.write("\nTiempo Necesario: " + user.calcularTiempoNecesario());
+			bf.write("\n--------------------------------------------------------------------");
 			bf.write("\n¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!");
-			bf.write("\n-------------------------------------------------------------------");
+			bf.write("\n--------------------------------------------------------------------");
 			bf.close();
+			output.close();
 		} catch (
 
 		IOException e) {
 			e.printStackTrace();
 		}
+
 	}
 
 	public LinkedList<Usuario> getListausuarios() {
