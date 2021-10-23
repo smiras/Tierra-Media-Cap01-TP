@@ -5,6 +5,14 @@ import java.util.*;
 import tierraMedia.Atraccion;
 
 public class PromocionAB extends Promocion {
+	@Override
+	public String toString() {
+		
+		return "\nPromocion \nNombre: " + super.getNombre() + "\nAtracciones Incluidas: " + Arrays.toString(super.getAtracciones())
+		+ "\nAtracciones de regalo: "+Arrays.toString(atraccionesExtra) + "\nCosto: " + costo + "\nDuracion: " + duracion+"\n";
+	}
+
+
 	private String atraccionesExtra[];
 
 	public PromocionAB(String nombre, String[] atracciones, String[] atraccionesExtra) {
