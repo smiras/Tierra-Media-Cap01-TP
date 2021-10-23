@@ -65,8 +65,8 @@ public class Promocion implements Comparable<Promocion> {
 	
 	@Override
 	public String toString() {
-		return "Promocion \nNombre: " + nombre + "\nAtracciones Incluidas: " + Arrays.toString(atraccionesIncluidas)
-				+ "\nCosto: " + costo + "\nDuracion: " + duracion;
+		return "\nPromocion \nNombre: " + nombre + "\nAtracciones Incluidas: " + Arrays.toString(atraccionesIncluidas)
+				+ "\nCosto: " + costo + "\nDuracion: " + duracion+"\n";
 	}
 
 	@Override

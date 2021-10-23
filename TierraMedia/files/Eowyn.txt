@@ -2,14 +2,16 @@
 Tu ticket de compra: Eowyn
 --------------------------------------------------------------------
 Sus atracciones elegidas son: 
+
 Promocion 
 Nombre: Aventura 2
 Atracciones Incluidas: [Minas Tirith, Abismo de Helm]
 Costo: 10.0
 Duracion: 7.5
+
 --------------------------------------------------------------------
-Gasto Final: 10.0
-Tiempo Necesario: 7.5
+Gasto Final: 20.0
+Tiempo Necesario: 15.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
 --------------------------------------------------------------------

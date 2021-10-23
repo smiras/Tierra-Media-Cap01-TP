@@ -52,17 +52,32 @@ public class Sugerencia {
 	}
 
 	public String ofertarPromos(Promocion ofer) {
+		String respuesta;
 		Scanner sc = new Scanner(System.in);
 		System.out.println(ofer.toString());
-		System.out.println("¿Acepta la sugerencia? Ingrese: s (Si) o n (No)");
-		return sc.nextLine();
+		
+		do { 
+			System.out.println("¿Acepta la sugerencia? Ingrese: s (Si) o n (No)");
+			respuesta = sc.nextLine();
+		}
+		while(!respuesta.equalsIgnoreCase("n")&&!respuesta.equalsIgnoreCase("s"));
+			
+
+		return respuesta;
 	}
 
 	public String ofertarAtraccion(Atraccion ofer) {
+		String respuesta;
 		Scanner sc = new Scanner(System.in);
 		System.out.println(ofer.toString());
-		System.out.println("¿Acepta la sugerencia? Ingrese: s (Si) o n (No)");
-		return sc.nextLine();
+				
+		do { 
+			System.out.println("¿Acepta la sugerencia? Ingrese: s (Si) o n (No)");
+			respuesta = sc.nextLine();
+		}
+		while(!respuesta.equalsIgnoreCase("n")&&!respuesta.equalsIgnoreCase("s"));
+		
+		return respuesta;
 	}
 
 	public LinkedList<Atraccion> aceptarPromo(Promocion ofer, Usuario user, LinkedList<Atraccion> atracciones) {
