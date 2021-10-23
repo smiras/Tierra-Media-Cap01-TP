@@ -1,13 +1,22 @@
----------------------------------
+--------------------------------------------------------------------
 Tu ticket de compra: Sam
--------------------------------------------------------------------
+--------------------------------------------------------------------
 Sus atracciones elegidas son: 
+
 Promocion 
-Nombre: Desgustacion
-Atracciones Incluidas: [Lothlorien, La Comarca]
-Costo: 36.0
-Duracion: 6.5
-Gasto Final: 36.0
-Tiempo Necesario: 6.5
+Nombre: Aventura 2
+Atracciones Incluidas: [Minas Tirith, Abismo de Helm]
+Costo: 10.0
+Duracion: 7.5
+
+Atraccion 
+Nombre: Sendero de los Muertos
+Costo: 5.0
+Duracion: 0.5
+
+--------------------------------------------------------------------
+Gasto Final: 30.0
+Tiempo Necesario: 16.0
+--------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
--------------------------------------------------------------------
+--------------------------------------------------------------------
