@@ -34,6 +34,9 @@ public class testTierraMedia {
 		Cindriel.aceptarAtracciones(atraccion);		
 		assertEquals(61 , Cindriel.calcularDinerogastado(), 0.001);
 		assertEquals(11, Cindriel.calcularTiempoNecesario(), 0.001);
+				
+		assert(a.leerarchivos());
+		assert(a.escribirArchivos(Cindriel));
 	}
 	
 	

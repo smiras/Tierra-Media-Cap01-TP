@@ -10,7 +10,7 @@ public class Archivo {
 	LinkedList<Atraccion> listatracciones = new LinkedList<Atraccion>();
 	LinkedList<Promocion> listapromociones = new LinkedList<Promocion>();
 
-	public void leerarchivos() {
+	public boolean leerarchivos() {
 
 		try {
 			FileReader input = new FileReader("files/Usuarios.txt");
@@ -113,10 +113,12 @@ public class Archivo {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
+		return true;
 
 	}
 
-	public void escribirArchivos(Usuario user) {
+	public boolean escribirArchivos(Usuario user) {
 
 		try {
 			FileWriter output = new FileWriter("files/" + user.getNombre() + ".txt");
@@ -147,7 +149,8 @@ public class Archivo {
 		IOException e) {
 			e.printStackTrace();
 		}
-
+		
+		return true;
 	}
 
 	public LinkedList<Usuario> getListausuarios() {
