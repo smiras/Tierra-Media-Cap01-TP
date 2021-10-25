@@ -1,0 +1,31 @@
+--------------------------------------------------------------------
+Tu ticket de compra: Cindriel
+--------------------------------------------------------------------
+Sus atracciones elegidas son: 
+
+Promocion 
+Nombre: Pack Trekking
+Atracciones Incluidas: [Montañas Nubladas, Río Bruinen]
+Atracciones de regalo: 
+Costo: 9.0
+Duracion: 7.5
+Tu ahorro es del:0.25%
+
+Promocion 
+Nombre: Pack Terror
+Atracciones Incluidas: [Bosque Sombrío, Sendero de los Muertos]
+Atracciones de regalo: 
+Costo: 12.0
+Duracion: 1.5
+Tu ahorro es:-12.0
+Atraccion 
+Nombre: Rivendel
+Costo: 40.0
+Duracion: 2.0
+
+--------------------------------------------------------------------
+Gasto Final: 122.0
+Tiempo Necesario: 22.0
+--------------------------------------------------------------------
+¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
+--------------------------------------------------------------------
