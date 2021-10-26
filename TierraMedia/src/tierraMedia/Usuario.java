@@ -9,15 +9,15 @@ public class Usuario {
 	private double tiempodisponible;
 	private LinkedList<Promocion> promosAceptadas = new LinkedList<Promocion>();
 	private LinkedList<Atraccion> atraccionAceptada = new LinkedList<Atraccion>();
-	private double dineroGastado = 0;
-	private double tiempoNecesario = 0;
+	private double dineroGastado;
+	private double tiempoNecesario;
 
 	public Usuario(String nombre, double presupuesto, double tiempodisponible) {
 		this.nombre = nombre;
 		this.presupuesto = presupuesto;
 		this.tiempodisponible = tiempodisponible;
 	}
-	
+
 	public String getNombre() {
 		return nombre;
 	}
@@ -37,11 +37,11 @@ public class Usuario {
 	public void setTiempodisponible(double tiempodisponible) {
 		this.tiempodisponible = tiempodisponible;
 	}
-	
+
 	public void aceptarPromos(Promocion promo) {
 		promosAceptadas.add(promo);
 	}
-	
+
 	public void aceptarAtracciones(Atraccion atraccion) {
 		atraccionAceptada.add(atraccion);
 	}
@@ -53,16 +53,18 @@ public class Usuario {
 	public LinkedList<Atraccion> getAtraccionAceptada() {
 		return atraccionAceptada;
 	}
-	
+
 	public double calcularDinerogastado() {
-		promosAceptadas.forEach(promo->dineroGastado+=promo.getCosto());
-		atraccionAceptada.forEach(atraccion->dineroGastado+=atraccion.getCosto());
+		dineroGastado = 0;
+		promosAceptadas.forEach(promo -> dineroGastado += promo.getCosto());
+		atraccionAceptada.forEach(atraccion -> dineroGastado += atraccion.getCosto());
 		return dineroGastado;
 	}
-	
+
 	public double calcularTiempoNecesario() {
-		promosAceptadas.forEach(promo->tiempoNecesario+=promo.getDuracion());
-		atraccionAceptada.forEach(atraccion->tiempoNecesario+=atraccion.getDuracion());
+		tiempoNecesario = 0;
+		promosAceptadas.forEach(promo -> tiempoNecesario += promo.getDuracion());
+		atraccionAceptada.forEach(atraccion -> tiempoNecesario += atraccion.getDuracion());
 		return tiempoNecesario;
 	}
 }

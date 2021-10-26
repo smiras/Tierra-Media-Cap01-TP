@@ -25,6 +25,6 @@ public class PromocionAbsoluta extends Promocion {
 
 		return "\nPromocion \nNombre: " + super.getNombre() + "\nAtracciones Incluidas: "
 				+ Arrays.toString(super.getAtracciones()) + "\nAtracciones de regalo: " + "\nCosto: " + costo
-				+ "\nDuracion: " + duracion + "\nTu ahorro es:" + (costoInicial);
+				+ "\nDuracion: " + duracion + "\nTu ahorro es:" + (costoInicial+"\n");
 	}
 }

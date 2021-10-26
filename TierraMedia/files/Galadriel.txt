@@ -1,29 +1,23 @@
 --------------------------------------------------------------------
-Tu ticket de compra: Gandalf
+Tu ticket de compra: Galadriel
 --------------------------------------------------------------------
 Sus atracciones elegidas son: 
 
 Promocion 
-Nombre: Pack Terror
-Atracciones Incluidas: [Bosque Sombrío, Sendero de los Muertos]
-Atracciones de regalo: 
-Costo: 12.0
-Duracion: 1.5
-Tu ahorro es:13.0
+Nombre: Pack Turista
+Atracciones Incluidas: [Bosque de los Trolls, Rivendel]
+Atracciones de regalo: [Bosque Negro es gratis]
+Costo: 45.0
+Duracion: 5.5
 
 Atraccion 
-Nombre: Rivendel
-Costo: 40.0
-Duracion: 2.0
-
-Atraccion 
-Nombre: Lothlórien
-Costo: 35.0
-Duracion: 1.0
+Nombre: Sendero de los Muertos
+Costo: 5.0
+Duracion: 0.5
 
 --------------------------------------------------------------------
-Gasto Final: 176.0
-Tiempo Necesario: 9.0
+Gasto Final: 100.0
+Tiempo Necesario: 12.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
 --------------------------------------------------------------------

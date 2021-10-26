@@ -4,18 +4,19 @@ Tu ticket de compra: Sam
 Sus atracciones elegidas son: 
 
 Promocion 
-Nombre: Aventura 2
-Atracciones Incluidas: [Minas Tirith, Abismo de Helm]
-Costo: 10.0
-Duracion: 7.5
-
+Nombre: Aventura plus
+Atracciones Incluidas: [Bosque Negro, Mordor, Lothlorien]
+Atracciones de regalo: 
+Costo: 25.2
+Duracion: 7.0
+Tu ahorro es del:10.0%
 Atraccion 
-Nombre: Sendero de los Muertos
-Costo: 5.0
-Duracion: 0.5
+Nombre: Bosque Sombrío
+Costo: 8.0
+Duracion: 1.0
 
 --------------------------------------------------------------------
-Gasto Final: 30.0
+Gasto Final: 66.4
 Tiempo Necesario: 16.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
