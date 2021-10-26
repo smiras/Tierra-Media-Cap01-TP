@@ -22,7 +22,7 @@ public class PromocionPorcentual extends Promocion {
 	public String toString() {
 		
 		return "\nPromocion \nNombre: " + super.getNombre() + "\nAtracciones Incluidas: " + Arrays.toString(super.getAtracciones())
-		+ "\nAtracciones de regalo: " + "\nCosto: " + costo + "\nDuracion: " + duracion+"\nTu ahorro es del:"+porcentaje*100+"%";
+		+"\nCosto: " + costo + "\nDuracion: " + duracion+"\nTu ahorro es del:"+porcentaje*100+"%";
 	}
 
 }

@@ -1,5 +1,5 @@
 --------------------------------------------------------------------
-Tu ticket de compra: Cindriel
+Tu ticket de compra: Sergmir
 --------------------------------------------------------------------
 Sus atracciones elegidas son: 
 
@@ -11,9 +11,14 @@ Costo: 12.0
 Duracion: 1.5
 Tu ahorro es:13.0
 
+Atraccion 
+Nombre: Lothlórien
+Costo: 35.0
+Duracion: 1.0
+
 --------------------------------------------------------------------
-Gasto Final: 26.0
-Tiempo Necesario: 3.0
+Gasto Final: 96.0
+Tiempo Necesario: 5.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
 --------------------------------------------------------------------

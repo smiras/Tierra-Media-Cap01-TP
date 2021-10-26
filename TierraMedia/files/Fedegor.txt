@@ -1,5 +1,5 @@
 --------------------------------------------------------------------
-Tu ticket de compra: Cindriel
+Tu ticket de compra: Fedegor
 --------------------------------------------------------------------
 Sus atracciones elegidas son: 
 
@@ -11,9 +11,14 @@ Costo: 12.0
 Duracion: 1.5
 Tu ahorro es:13.0
 
+Atraccion 
+Nombre: Rivendel
+Costo: 40.0
+Duracion: 2.0
+
 --------------------------------------------------------------------
-Gasto Final: 26.0
-Tiempo Necesario: 3.0
+Gasto Final: 106.0
+Tiempo Necesario: 7.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
 --------------------------------------------------------------------

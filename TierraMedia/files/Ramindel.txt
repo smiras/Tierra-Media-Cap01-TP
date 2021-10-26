@@ -1,7 +1,15 @@
 --------------------------------------------------------------------
-Tu ticket de compra: Cindriel
+Tu ticket de compra: Ramindel
 --------------------------------------------------------------------
 Sus atracciones elegidas son: 
+
+Promocion 
+Nombre: Pack Turista
+Atracciones Incluidas: [Bosque de los Trolls, Rivendel]
+Atracciones de regalo: [Bosque Negro es gratis]
+Costo: 45.0
+Duracion: 5.5
+
 
 Promocion 
 Nombre: Pack Terror
@@ -12,8 +20,8 @@ Duracion: 1.5
 Tu ahorro es:13.0
 
 --------------------------------------------------------------------
-Gasto Final: 26.0
-Tiempo Necesario: 3.0
+Gasto Final: 116.0
+Tiempo Necesario: 14.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
 --------------------------------------------------------------------

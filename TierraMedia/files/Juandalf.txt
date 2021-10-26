@@ -1,7 +1,15 @@
 --------------------------------------------------------------------
-Tu ticket de compra: Cindriel
+Tu ticket de compra: Juandalf
 --------------------------------------------------------------------
 Sus atracciones elegidas son: 
+
+Promocion 
+Nombre: Aventura plus
+Atracciones Incluidas: [Bosque Negro, Mordor, Lothlorien]
+Atracciones de regalo: 
+Costo: 25.2
+Duracion: 7.0
+Tu ahorro es del:10.0%
 
 Promocion 
 Nombre: Pack Terror
@@ -12,8 +20,8 @@ Duracion: 1.5
 Tu ahorro es:13.0
 
 --------------------------------------------------------------------
-Gasto Final: 26.0
-Tiempo Necesario: 3.0
+Gasto Final: 76.4
+Tiempo Necesario: 17.0
 --------------------------------------------------------------------
 ¡Gracias por tu compra! ¡Te esperamos en la Tierra Media!
 --------------------------------------------------------------------
